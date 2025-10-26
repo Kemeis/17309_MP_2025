@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Virtual Tour - 17309_MP_2025</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #panorama {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="panorama"></div>
+
+  <!-- Biblioteki -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.105.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/pchen66/panolens.js@0.10.2/build/panolens.min.js"></script>
+
+  <script>
+    const panorama = new PANOLENS.ImagePanorama('a.jpeg');
+
+    const viewer = new PANOLENS.Viewer({
+      container: document.querySelector('#panorama'),
+      autoRotate: true,
+      autoRotateSpeed: 0.3,
+      controlBar: false // brak przycisków
+    });
+
+    viewer.add(panorama);
+  </script>
+</body>
+</html>
